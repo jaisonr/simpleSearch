@@ -1,0 +1,25 @@
+[ {
+  "title" : "Soup boys",
+  "links" : [ "http://gaana.com/", "http://www.saavn.com/" ],
+  "songs" : [ "Song 1", "Song 2", "Song 3" ],
+  "artist" : {
+    "name" : "Artist111",
+    "dateOfBirth" : "21 Apr 1980"
+  },
+  "musicians" : {
+    "Musicians2" : "AR",
+    "Musicians1" : "Harris"
+  }
+}, {
+  "title" : "Backstreet Boys",
+  "links" : [ "http://engilshgaana.com/", "http://www.saavn.com/" ],
+  "songs" : [ "Song 111", "Song 112", "Song 113" ],
+  "artist" : {
+    "name" : "Artist111",
+    "dateOfBirth" : "21 Apr 1980"
+  },
+  "musicians" : {
+    "Musicians112" : "AR",
+    "Musicians111" : "Harris"
+  }
+} ]

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Album Search</title>
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+var extJson='';
+	function search() {
+		$
+				.ajax({
+					dataType : 'json',
+					url : extJson,
+					crossDomain : true,
+					success : showResult,
+					error : function() {
+						alert("Error.......!");
+					}
+				});
+
+	}
+	var showResult = function(jsonData) {
+		document.getElementById("data").innerHTML = "<h2>Data Recived from the cross domain:</h2> "
+				+ jsonData.title;
+	}
+</script>
+</head>
+<style>
+.center {
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+}
+</style>
+</head>
+<body>
+	<div id="main" class="center">
+		<br> <br> <br> <br>
+		<table>
+			<tr>
+				<td align="center"><img src="img/logo.gif" width=500 height=150 /><br>
+				<h1>From cross domain</h1></td>
+			</tr>
+			<tr>
+				<td align="center"><br>
+				<button id="b" type="button" onclick='search();'>Click here
+						to view results</button></td>
+			</tr>
+		</table>
+		<br> <br>
+		<div id="data" align="center"></div>
+	</div>
+</body>
+</html>

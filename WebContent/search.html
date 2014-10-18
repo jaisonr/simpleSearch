@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Album Search</title>
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+var extJson='http://sample.domian1.com/simpleSearch/SearchServelet';
+var result="";
+	function search() {
+		var d=document.getElementById("albumTitle").value;
+		$.ajax({
+			type : "POST",
+			dataType : 'jsonp',
+			url : extJson,
+			data: {"albumTitle":d},
+			crossDomain : true,
+			success : showResult,
+			error : function() {
+				alert("Error.......!");
+			}
+		});
+
+	}
+	var showResult = function(data) {
+		result=result+"<table><tr><td>";
+		result=result+" " +data.title+"</td></tr><tr><td><a href=' "+data.links[0]+"'>Click here for the album</a></td></tr><tr><td> "+data.artist.name+"</td></tr></table>";
+		document.getElementById("data").innerHTML=result;
+	}
+</script>
+<style>
+.center {
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+}
+</style>
+</head>
+<body>
+	<div id="main" class="center">
+		<br> <br> <br> <br>
+		<table>
+			<tr>
+				<td align="center"><img src="img/logo.gif" width=500 height=150 /><br>From
+					same domain</td>
+			</tr>
+			<tr>
+				<td align="center"><input type="text" id="albumTitle"
+					class="albumSearchTextbox" size="100"></input></td>
+			</tr>
+			<tr>
+				<td align="center"><br>
+					<button id="b" type="button" onclick='search();'>Search
+						album</button></td>
+			</tr>
+		</table>
+		<br> <br>
+		<div id="data" align="center"></div>
+	</div>
+</body>
+</html>
